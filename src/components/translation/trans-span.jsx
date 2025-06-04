@@ -1,9 +1,12 @@
 import { useTranslation } from 'react-i18next'
 
-const TransSpan = ({children}) => {
+const TransSpan = ({
+  children,
+  className
+}) => {
     const {t} = useTranslation()
   return (
-    <span>
+    <span className={className}>
         {t(children)}
     </span>
   )

@@ -1,15 +1,28 @@
-import React, { Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Home from '../pages/home'
-import About from '../pages/about'
+import React, { Suspense, useEffect } from 'react'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+import AllRoutes from '../routes/all-routes'
 
 const RootNavigator = () => {
+
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+    navigate('/login')
+  },[])
+
   return (
-    <div>
+    <div className='font-inter'>
         <Suspense fallback={<div>loading...</div>}>
         <Routes>
-            <Route element={<Home/>}  path='/'/>
-            <Route element={<About/>}  path='/about'/>
+          {
+            AllRoutes?.map((item,index)=>(
+              <Route
+              key={index}
+              element={item.component}
+              path={item?.path}
+              />
+            ))
+          }
         </Routes>
         </Suspense>
     </div>
