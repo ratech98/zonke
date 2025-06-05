@@ -1,3 +1,18 @@
 {
-    "Sign up to your New Account": "Sign up to your New Account"
+    "Sign up to your New Account": "Sign up to your New Account",
+    "Send OTP": "Send OTP",
+    "Phone Number": "Phone Number",
+    "Enter Mobile Number": "Enter Mobile Number",
+    "Verification Code": "Verification Code",
+    "We have sent the verification code to you phone number": "We have sent the verification code to you phone number",
+    "OTP Via Call": "OTP Via Call",
+    "Change Phone Number": "Change Phone Number",
+    "Resend OTP": "Resend OTP",
+    "Select Location": "Select Location",
+    "Business Category": "Business Category",
+    "CIPC Registration Number": "CIPC Registration Number",
+    "Business Name": "Business Name",
+    "ID Number Verification": "ID Number Verification",
+    "Hello. Let's get you Onboard!": "Hello. Let's get you Onboard!",
+    "Verify Identify": "Verify Identify"
 }

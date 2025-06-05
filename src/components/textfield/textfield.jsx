@@ -19,9 +19,13 @@ const Textfield = ({
   onKeyDown,
   borderWidth,
   passwordField,
-  phoneNumberField,
   textColor,
-  label
+  label,
+  errorMsg,
+  customLeftUi,
+  customRightUi,
+  required,
+  showCaret = true
 }) => {
 
   const {t} = useTranslation()
@@ -29,24 +33,18 @@ const Textfield = ({
 
   return (
     <div>
-        <div className='relative'>
+        <div className=''>
             {
                 label &&
                 <div className='mb-[8px]'>
-                    <TransSpan className='text-[16px] text-dimGray font-medium'>
-                        {label}
-                    </TransSpan>
+                    <span className='text-[16px] text-dimGray font-medium flex items-center'>
+                        <span>{label}</span>
+                        {required&&
+                        <span className='text-classicRed'>*</span>
+                        }
+                    </span>
                 </div>
             }
-            {/* {
-              phoneNumberField?
-              <div className='absolute left-0 top-0 bottom-0 px-4 flex items-center text-placeholder'>
-                <span className='border-e-2 pe-4 flex items-center gap-2'>
-                  <span>{countryCode}</span>
-                  <span onClick={handleModal} className='cursor-pointer'>{ICONS?.downward_arrow}</span>
-                </span>
-              </div>:null
-            } */}
             {/* {
               passwordField?
               <div className='absolute right-0 top-0 bottom-0 flex items-center pe-4'>
@@ -66,32 +64,52 @@ const Textfield = ({
               </div>
               :null
             } */}
-            <input 
-            className={`
-            placeholder-silverSand
-            placeholder-[16px]
-            placeholder-medium
-            flex 
-            w-full 
-            bg-white 
-            outline-none
-            text-[16px]
-            ${px? px:'px-[14px]'}
-            ${py? py:'py-[16px]'}
-            ${error? 'border-red-500': border_color? border_color:'border-silver'}
-            ${borderWidth? borderWidth:'border-1'}
-            ${borderRadius? borderRadius:'rounded-[10px]'} 
-            ${textColor? textColor:'text-black'}
-            `}
-            type={passwordField && !pwdShow? 'password': type}
-            placeholder={t(placeholder)}
-            onChange={(e)=>{onChange(e.target.value.trimStart())}}
-            name={name}
-            value={value}
-            checked={value}
-            onKeyDown={onKeyDown}
-            readOnly={readOnly}
-            />
+            <div className='relative'>
+              <input 
+              className={`
+              relative
+              placeholder-silverSand
+              placeholder-[16px]
+              placeholder-medium
+              flex 
+              w-full 
+              bg-white 
+              outline-none
+              text-[16px]
+              ${px? px:'px-[14px]'}
+              ${py? py:'py-[16px]'}
+              ${error? 'border-red-500': border_color? border_color:'border-silver'}
+              ${borderWidth? borderWidth:'border-1'}
+              ${borderRadius? borderRadius:'rounded-[10px]'} 
+              ${textColor? textColor:'text-black'}
+              ${!showCaret? 'caret-transparent':''}
+              `}
+              type={passwordField && !pwdShow? 'password': type}
+              placeholder={t(placeholder)}
+              onChange={(e)=>{onChange(e.target.value.trimStart())}}
+              name={name}
+              value={value}
+              checked={value}
+              onKeyDown={onKeyDown}
+              readOnly={readOnly}
+              />
+              
+              {
+                customLeftUi?
+                <div className='absolute left-0 top-0 bottom-0'>
+                  {customLeftUi}
+                </div>:null
+              }
+              {
+                customRightUi?
+                <div className='absolute right-0 top-0 bottom-0'>
+                  {customRightUi}
+                </div>:null
+              }
+            </div>
+            <span className='text-xs text-red-500'>
+              {errorMsg}
+            </span>
         </div>
     </div>
   )

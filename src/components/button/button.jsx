@@ -5,7 +5,8 @@ const Button = ({
     name,
     onClick,
     bgColor,
-    textColor
+    textColor,
+    borderColor
 }) => {
 
   return (
@@ -21,6 +22,7 @@ const Button = ({
     shadow-shadow-4 shadow-shadow-5
     ${bgColor? bgColor:'bg-vermilion'}
     ${textColor? textColor:'text-white'}
+    ${borderColor? `${borderColor} border-1`:''}
     `}
     onClick={onClick}
     >

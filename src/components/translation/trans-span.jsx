@@ -2,11 +2,11 @@ import { useTranslation } from 'react-i18next'
 
 const TransSpan = ({
   children,
-  className
+  ...rest
 }) => {
     const {t} = useTranslation()
   return (
-    <span className={className}>
+    <span {...rest}>
         {t(children)}
     </span>
   )

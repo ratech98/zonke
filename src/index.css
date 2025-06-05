@@ -7,21 +7,34 @@ body {
 @import "tailwindcss";
 
 @theme {
-
   /* colors */
   --color-graniteGray: #595959;
   --color-silverSand: #C7C7C7;
   --color-silver: #C0C0C0;
   --color-dimGray: #6F6F6F;
   --color-vermilion: #FA5117;
-
+  --color-darkCharCoal: #1F1F1F;
+  --color-silverGray: #ACB5BB;
+  --color-polarWhite: #EDF1F3;
+  --color-lightGray: #E2E2E2;
+  --color-gray: #858585;
+  --color-orangeRed: #FA5F2A;
+  --color-classicRed: #CC0000;
+  --color-davyGray: #5D5D5D;
   /* font family */
   --font-inter: "Inter", "sans-serif";
 
   /* shadow */
-  --shadow-shadow-1: 0 4px 16px 0 #11111A10;
-  --shadow-shadow-2: 0 8px 24px 0 #11111A10;
-  --shadow-shadow-3: 0 16px 56px 0 #11111A10;
+  --shadow-shadow-1: 0 4px 16px 0 rgba(17, 17, 26, 0.1);
+  --shadow-shadow-2: 0 8px 24px 0 rgba(17, 17, 26, 0.1);
+  --shadow-shadow-3: 0 16px 56px 0 rgba(17, 17, 26, 0.1);
   --shadow-shadow-4: 0 1px 4px 0 #253EA748;
   --shadow-shadow-5: 0 0px 0px 1 #FA5117;
+
+  /* breakpoints */
+  --breakpoint-sm: 640px   /* mobile */
+  --breakpoint-md: 768px   /* tablets */
+  --breakpoint-lg: 1024px  /* small laptops */
+  --breakpoint-xl: 1280px  /* desktops */
+  --breakpoint-2xl: 1536px /* large desktops */
 }
