@@ -1,6 +1,9 @@
-import Login from "../pages/login"
-import Otp from "../pages/otp"
-import PersonalDetails from "../pages/personal-details"
+import { lazy } from "react"
+const Login = lazy(()=>import('../pages/login')) 
+const Otp = lazy(()=>import('../pages/otp')) 
+const PersonalDetails = lazy(()=>import('../pages/personal-details')) 
+const SelectLocation = lazy(()=>import('../pages/select-location')) 
+const SelectLocationMap = lazy(()=>import('../pages/select-location-map')) 
 
 
 const AllRoutes = [
@@ -18,7 +21,17 @@ const AllRoutes = [
         name: 'personal details',
         component: <PersonalDetails/>,
         path: '/personalDetails'
-    }
+    },
+    {
+        name: 'select location',
+        component: <SelectLocation/>,
+        path: '/selectLocation'
+    },
+    {
+        name: 'select location map',
+        component: <SelectLocationMap/>,
+        path: '/selectLocationMap'
+    },
 ]
 
 export default AllRoutes

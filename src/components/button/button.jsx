@@ -6,7 +6,8 @@ const Button = ({
     onClick,
     bgColor,
     textColor,
-    borderColor
+    borderColor,
+    fontWeight
 }) => {
 
   return (
@@ -14,7 +15,7 @@ const Button = ({
     className={`
     py-[10px] 
     text-center 
-    font-medium
+    ${fontWeight? fontWeight:'font-medium'}
     text-[16px]
     rounded-[10px]
     flex justify-center items-center

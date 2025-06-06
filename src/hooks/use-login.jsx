@@ -2,6 +2,9 @@ import { useFormik } from "formik"
 import { loginSchema } from "../utils/schema/schema"
 import { useNavigate } from "react-router-dom"
 import Regex from "../utils/regex/regex"
+import { useDispatch, useSelector } from "react-redux"
+import { setPhoneNumber } from '../redux-store/slice/auth'
+import { useEffect } from "react"
 
 
 const UseLogin = () => {
@@ -15,6 +18,16 @@ const UseLogin = () => {
     })
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const {phoneNumber} = useSelector(state=>state?.auth)
+
+    //get saved phone number
+    useEffect(()=>{
+        if(phoneNumber){
+            formik.setFieldValue('phoneNumber',phoneNumber)
+        }
+    },[phoneNumber])
 
     //send otp
     const handleSendOtp = async() =>{
@@ -23,6 +36,7 @@ const UseLogin = () => {
         const errors = await formik.validateForm()
 
         if(Object.keys(errors)?.length === 0){
+            dispatch(setPhoneNumber(formik.values.phoneNumber))
             navigate('/otp')
         }
     }

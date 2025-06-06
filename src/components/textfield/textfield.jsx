@@ -12,9 +12,7 @@ const Textfield = ({
   py,
   error,
   value,
-  countryCode,
-  handleModal,
-  border_color,
+  borderColor,
   readOnly,
   onKeyDown,
   borderWidth,
@@ -25,7 +23,9 @@ const Textfield = ({
   customLeftUi,
   customRightUi,
   required,
-  showCaret = true
+  showCaret = true,
+  onClick,
+  placeholderColor
 }) => {
 
   const {t} = useTranslation()
@@ -68,7 +68,7 @@ const Textfield = ({
               <input 
               className={`
               relative
-              placeholder-silverSand
+              ${placeholderColor? placeholderColor:'placeholder-silverSand'}
               placeholder-[16px]
               placeholder-medium
               flex 
@@ -78,7 +78,7 @@ const Textfield = ({
               text-[16px]
               ${px? px:'px-[14px]'}
               ${py? py:'py-[16px]'}
-              ${error? 'border-red-500': border_color? border_color:'border-silver'}
+              ${error? 'border-red-500': borderColor? borderColor:'border-silver'}
               ${borderWidth? borderWidth:'border-1'}
               ${borderRadius? borderRadius:'rounded-[10px]'} 
               ${textColor? textColor:'text-black'}
@@ -92,17 +92,23 @@ const Textfield = ({
               checked={value}
               onKeyDown={onKeyDown}
               readOnly={readOnly}
+              onClick={onClick}
               />
               
               {
                 customLeftUi?
-                <div className='absolute left-0 top-0 bottom-0'>
+                <div 
+                className='absolute left-0 top-0 bottom-0'
+                >
                   {customLeftUi}
                 </div>:null
               }
               {
                 customRightUi?
-                <div className='absolute right-0 top-0 bottom-0'>
+                <div 
+                className='absolute right-0 top-0 bottom-0'
+                onClick={onClick}
+                >
                   {customRightUi}
                 </div>:null
               }

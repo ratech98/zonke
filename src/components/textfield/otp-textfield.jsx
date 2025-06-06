@@ -86,7 +86,7 @@ const OtpTextfield = ({
                   text-gray
                   caret-transparent
                   xl:max-w-[80px] w-full min-w-[40px]
-                  xl:h-[80px] h-[50px]
+                  h-[80px]
                   `}
                   style={{ marginRight: index === length - 1 ? '0' : '10px'}}
                   />

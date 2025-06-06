@@ -13,7 +13,7 @@ const Otp = () => {
     seconds,
     handleResendOtp,
     handleChangePhoneNumber,
-    handleOtpViaCall
+    handleSubmit
   } = UseOtp()
 
   return (
@@ -72,11 +72,11 @@ const Otp = () => {
           </div>
           <div className="w-full">
             <Button
-            name={'OTP Via Call'}
+            name={'Submit'}
             borderColor={formik.values.otp?.length === 6? 'border-orangeRed':'border-polarWhite'}
             textColor={formik.values.otp?.length === 6? null:'text-silverGray'}
             bgColor={formik.values.otp?.length === 6? null:'bg-polarWhite'}
-            onClick={handleOtpViaCall}
+            onClick={handleSubmit}
             />
           </div>
         </div>

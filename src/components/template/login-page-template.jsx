@@ -8,7 +8,7 @@ const LoginPageTemplate = ({
   return (
     <div className="grid md:grid-cols-12 grid-cols-1">
       {/* image */}
-      <div className='md:col-span-5 h-screen overflow-hidden md:block hidden'>
+      <div className='lg:col-span-5 md:col-span-4 h-screen overflow-hidden md:block hidden'>
         <img
         src={image? image:IMAGES.loginImage}
         className='w-full h-full object-center object-cover'
@@ -17,7 +17,7 @@ const LoginPageTemplate = ({
 
       <div 
       className='
-      md:col-span-7
+      lg:col-span-7 md:col-span-8
       relative 
       h-screen
       flex items-center justify-center

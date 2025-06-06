@@ -1,6 +1,8 @@
 import { useFormik } from 'formik'
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { setPhoneNumber } from '../redux-store/slice/auth'
 
 const UseOtp = () => {
 
@@ -11,6 +13,7 @@ const UseOtp = () => {
     })
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const [seconds, setSeconds] = useState(29)
 
@@ -42,7 +45,10 @@ const UseOtp = () => {
     }
 
     //otp via call
-    const handleOtpViaCall = () =>{
+    const handleSubmit = () =>{
+        if(formik.values.otp?.length !== 6) return
+        
+        // dispatch(setPhoneNumber(null))
         navigate('/personalDetails')
     }
 
@@ -51,7 +57,7 @@ const UseOtp = () => {
     seconds,
     handleResendOtp,
     handleChangePhoneNumber,
-    handleOtpViaCall
+    handleSubmit
   }
 }
 
