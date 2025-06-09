@@ -11,7 +11,7 @@ const Textfield = ({
   px,
   py,
   error,
-  value,
+  value = '',
   borderColor,
   readOnly,
   onKeyDown,
@@ -25,7 +25,8 @@ const Textfield = ({
   required,
   showCaret = true,
   onClick,
-  placeholderColor
+  placeholderColor,
+  backgroundColor
 }) => {
 
   const {t} = useTranslation()
@@ -72,8 +73,7 @@ const Textfield = ({
               placeholder-[16px]
               placeholder-medium
               flex 
-              w-full 
-              bg-white 
+              w-full  
               outline-none
               text-[16px]
               ${px? px:'px-[14px]'}
@@ -83,13 +83,13 @@ const Textfield = ({
               ${borderRadius? borderRadius:'rounded-[10px]'} 
               ${textColor? textColor:'text-black'}
               ${!showCaret? 'caret-transparent':''}
+              ${backgroundColor? backgroundColor:'bg-white'}
               `}
               type={passwordField && !pwdShow? 'password': type}
               placeholder={t(placeholder)}
               onChange={(e)=>{onChange(e.target.value.trimStart())}}
               name={name}
               value={value}
-              checked={value}
               onKeyDown={onKeyDown}
               readOnly={readOnly}
               onClick={onClick}

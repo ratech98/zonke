@@ -4,6 +4,9 @@ const Otp = lazy(()=>import('../pages/otp'))
 const PersonalDetails = lazy(()=>import('../pages/personal-details')) 
 const SelectLocation = lazy(()=>import('../pages/select-location')) 
 const SelectLocationMap = lazy(()=>import('../pages/select-location-map')) 
+const Step1 = lazy(()=>import('../pages/business-details/step1')) 
+const Step2 = lazy(()=>import('../pages/business-details/step2')) 
+const Step3 = lazy(()=>import('../pages/business-details/step3')) 
 
 
 const AllRoutes = [
@@ -31,6 +34,21 @@ const AllRoutes = [
         name: 'select location map',
         component: <SelectLocationMap/>,
         path: '/selectLocationMap'
+    },
+    {
+        name: 'business details step 1',
+        component: <Step1/>,
+        path: '/businessDetailsStep1'
+    },
+    {
+        name: 'business details step 2',
+        component: <Step2/>,
+        path: '/businessDetailsStep2'
+    },
+    {
+        name: 'business details step 3',
+        component: <Step3/>,
+        path: '/businessDetailsStep3'
     },
 ]
 

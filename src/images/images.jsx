@@ -5,6 +5,11 @@ import SAImg from '../assets/images/sa_img.png'
 import personalDetailsImage from '../assets/images/personal_details_image.png'
 import businessCategoryImage from '../assets/images/business_category_image.png'
 import selectLocationImage from '../assets/images/select_location_image.png'
+import roundTick from '../assets/images/round_tick_image.png'
+import BusinessDetailsImage from '../assets/images/business_details_image.png'
+import fileImage from '../assets/images/file_image.png'
+import jpg from '../assets/images/jpg_image.png'
+import pdf from '../assets/images/pdf_image.png'
 
 const IMAGES =  {
     loginImage: loginImage,
@@ -13,7 +18,12 @@ const IMAGES =  {
     SAImg: SAImg,
     personalDetailsImage: personalDetailsImage,
     businessCategoryImage: businessCategoryImage,
-    selectLocationImage: selectLocationImage
+    selectLocationImage: selectLocationImage,
+    roundTickImage: roundTick,
+    BusinessDetailsImage: BusinessDetailsImage,
+    fileImage: fileImage,
+    jpg: jpg,
+    pdf: pdf
 }
 
 export default IMAGES

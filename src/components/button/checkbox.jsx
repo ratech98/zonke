@@ -3,10 +3,9 @@ import ICONS from "../../icons/icons"
 
 const Checkbox = ({
   name,
-  checked,
+  checked = false,
   checked_color,
   onChange=()=>{},
-  value,
   readOnly,
   onClick
 }) => {
@@ -20,7 +19,6 @@ const Checkbox = ({
                 name={name} 
                 onChange={onChange}
                 onClick={onClick}
-                value={value}
                 className={`
                 w-4
                 hidden

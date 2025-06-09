@@ -1,5 +1,7 @@
 import Button from "../components/button/button"
 import Checkbox from "../components/button/checkbox"
+import Dialog from "../components/dialog/dialog"
+import ErrorMsg from "../components/message/error-msg"
 import LoginPageTemplate from "../components/template/login-page-template"
 import SelectTextfield from "../components/textfield/select-textfield"
 import Textfield from "../components/textfield/textfield"
@@ -17,7 +19,12 @@ const PersonalDetails = () => {
     handleClickSelectLocation,
     handleVerifyIdentify,
     handleCheck,
-    error
+    error,
+    handleContinue,
+    openModal,
+    dispatch,
+    setPersonalDetails,
+    personalDetails
   } = UsePersonalDetails()
 
   return (
@@ -25,7 +32,7 @@ const PersonalDetails = () => {
     image={IMAGES.personalDetailsImage}
     >
       <div className="flex flex-col justify-between h-full">
-        <div className="flex flex-col justify-between h-screen overflow-y-auto gap-[100px]">
+        <div className="flex flex-col justify-between gap-[100px] h-screen overflow-y-auto">
           <div className="flex flex-col gap-[32px]">
             {/* title */}
             <TransSpan className='lg:text-[32px] text-[24px] font-bold text-graniteGray'>
@@ -46,6 +53,7 @@ const PersonalDetails = () => {
                 required={true}
                 onChange={(value)=>{
                   formik.setFieldValue('businessName',value)
+                  dispatch(setPersonalDetails({businessName: value}))
                 }}
                 value={formik.values.businessName}
                 error={formik.touched.businessName&&formik.errors.businessName}
@@ -61,7 +69,10 @@ const PersonalDetails = () => {
                 label={'CIPC Registration Number'}
                 required={true}
                 onChange={(value)=>{
+                  // if(Regex.only_number.test(value)){
                     formik.setFieldValue('CIPCRegNumber',value)
+                    dispatch(setPersonalDetails({...personalDetails, CIPCRegNumber: value}))
+                  // }
                 }}
                 value={formik.values.CIPCRegNumber}
                 error={formik.touched.CIPCRegNumber&&formik.errors.CIPCRegNumber}
@@ -79,6 +90,7 @@ const PersonalDetails = () => {
                 data={categories}
                 onChange={(value)=>{
                   formik.setFieldValue('businessCategory',value)
+                  dispatch(setPersonalDetails({...personalDetails, businessCategory: value}))
                 }}
                 value={formik.values.businessCategory}
                 error={formik.touched.businessCategory&&formik.errors.businessCategory}
@@ -116,6 +128,7 @@ const PersonalDetails = () => {
                     checked={formik.values.terms}
                     onChange={()=>{
                       formik.setFieldValue('terms',!formik.values.terms)
+                      dispatch(setPersonalDetails({...personalDetails, terms: !formik.values.terms}))
                     }}
                     />
 
@@ -133,10 +146,7 @@ const PersonalDetails = () => {
 
                 {
                   error &&
-                  <div className="flex items-center gap-[4px] px-[12px] py-[6px] bg-palePink rounded-[8px]">
-                    <span className="text-classicRed text-xl">{ICONS.cancelRound}</span>
-                    <TransSpan className='font-semibold text-[16px] text-classicRed'>We couldn't verify your identity. Please check and try again</TransSpan>
-                  </div>
+                  <ErrorMsg/>
                 }
               </div>
             </div>
@@ -150,6 +160,28 @@ const PersonalDetails = () => {
           />
         </div>
       </div>
+
+      <Dialog
+      open={openModal}
+      >
+        <div className="p-[32px] rounded-[16px] bg-white flex flex-col gap-[54px] items-center lg:w-[597px]">
+          <div className="flex flex-col gap-[32px] items-center text-center">
+            <img
+            src={IMAGES.roundTickImage}
+            className="w-[108px] h-[108px] object-contain"
+            />
+            
+            <TransSpan className='text-[24px] font-semibold text-jetBlack w-100'>Business details verified successfully!</TransSpan>
+          </div>
+
+          <div className="w-full">
+            <Button
+            name={'Continue'}
+            onClick={handleContinue}
+            />
+          </div>
+        </div>
+      </Dialog>
     </LoginPageTemplate>
   )
 }

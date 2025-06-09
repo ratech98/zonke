@@ -4,7 +4,8 @@ const auth = createSlice({
     name: 'auth',
     initialState: {
         name: null,
-        phoneNumber: null
+        phoneNumber: null,
+        personalDetails: null
     },
 
     reducers: {
@@ -14,12 +15,16 @@ const auth = createSlice({
         setPhoneNumber(state, action){
             state.phoneNumber = action.payload
         },
+        setPersonalDetails(state, action){
+            state.personalDetails = action.payload
+        },
     }
 })
 
 export const {
     setName,
-    setPhoneNumber
+    setPhoneNumber,
+    setPersonalDetails
 } = auth.actions
 
 export default auth.reducer

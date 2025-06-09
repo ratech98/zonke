@@ -23,3 +23,19 @@ export const personalDetailsSchema = () =>(
         terms: yup.boolean().oneOf([true], 'You must accept the terms and conditions')
     })
 )
+
+export const businessDetailsStep2Schema = () =>(
+    yup.object().shape({
+        contactName: yup.string().required('Contact name is required'),
+        contactEmail: yup.string().email('Enter Valid Email ID').required('Contact name is required'),
+    })
+)
+
+export const businessDetailsStep3Schema = () =>(
+    yup.object().shape({
+        contactName: yup.string().required('Contact name is required'),
+        contactEmail: yup.string().email('Enter Valid Email ID').required('Contact name is required'),
+        taxNumber: yup.string().required('Tax number is required'),
+        tradeLicense: yup.mixed().required('Trade license is required'),
+    })
+)
