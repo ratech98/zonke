@@ -5,6 +5,7 @@ import Textfield from '../../components/textfield/textfield'
 import UseStep3 from '../../hooks/business-details/use-step3'
 import FileInput from '../../components/fileInput/fileInput'
 import Button from '../../components/button/button'
+import IMAGES from '../../images/images'
 
 const Step3 = () => {
 
@@ -15,7 +16,9 @@ const Step3 = () => {
   }  = UseStep3()
 
   return (
-    <LoginPageTemplate>
+    <LoginPageTemplate
+    image={IMAGES.BusinessDetailsImage}
+    >
       <div className='flex flex-col h-full'>
         <div className="flex flex-col justify-between gap-[100px] h-screen overflow-y-auto">
           <div className="flex flex-col gap-[32px]">
@@ -40,7 +43,7 @@ const Step3 = () => {
                   {/* contact person name */}
                   <Textfield
                   placeholder={'Tax Number'}
-                  label={'TaxNumber'}
+                  label={'Tax Number'}
                   required={true}
                   onChange={(value)=>{
                   formik.setFieldValue('taxNumber',value)
@@ -90,7 +93,7 @@ const Step3 = () => {
           name={'Save & Continue'}
           onClick={()=>{
               if(handleCheck()){
-                  handleCheck()
+                  handleContinue()
               }
           }}
           textColor={handleCheck()? null:'text-silverGray'}

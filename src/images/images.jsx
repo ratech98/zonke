@@ -10,6 +10,12 @@ import BusinessDetailsImage from '../assets/images/business_details_image.png'
 import fileImage from '../assets/images/file_image.png'
 import jpg from '../assets/images/jpg_image.png'
 import pdf from '../assets/images/pdf_image.png'
+import qr from '../assets/images/qr_image.png'
+import link from '../assets/images/link_image.png'
+import doubleTick from '../assets/images/double_tick_image.png'
+import qrOrange from '../assets/images/qr_image_orange.png'
+import linkOrange from '../assets/images/link_image_orange.png'
+import doubleTickOrange from '../assets/images/double_tick_image_orange.png'
 
 const IMAGES =  {
     loginImage: loginImage,
@@ -23,7 +29,13 @@ const IMAGES =  {
     BusinessDetailsImage: BusinessDetailsImage,
     fileImage: fileImage,
     jpg: jpg,
-    pdf: pdf
+    pdf: pdf,
+    qr: qr,
+    link: link,
+    doubleTick: doubleTick,
+    qrOrange: qrOrange,
+    linkOrange: linkOrange,
+    doubleTickOrange: doubleTickOrange
 }
 
 export default IMAGES

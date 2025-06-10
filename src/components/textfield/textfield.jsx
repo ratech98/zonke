@@ -39,7 +39,7 @@ const Textfield = ({
                 label &&
                 <div className='mb-[8px]'>
                     <span className='text-[16px] text-dimGray font-medium flex items-center'>
-                        <span>{label}</span>
+                        <TransSpan>{label}</TransSpan>
                         {required&&
                         <span className='text-classicRed'>*</span>
                         }

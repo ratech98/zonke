@@ -40,8 +40,19 @@
     "Compliance & Financial Details": "Compliance & Financial Details",
     "To add a file, click here!": "To add a file, click here!",
     "No attachments uploaded": "No attachments uploaded",
-    "trade_license.jpg": "trade_license.jpg",
     "Trade License": "Trade License",
     "Registration Document": "Registration Document",
-    "Proof of Address": "Proof of Address"
+    "Proof of Address": "Proof of Address",
+    "Location": "Location",
+    "Both (Scan & Pay + Payment Link)": "Both (Scan & Pay + Payment Link)",
+    "Payment Link": "Payment Link",
+    "Engagement Model": "Engagement Model",
+    "Scan & Pay (QR Code)": "Scan & Pay (QR Code)",
+    "Sign Agreement": "Sign Agreement",
+    "Business Profile": "Business Profile",
+    "Complete your profile and sign your agreement to start receiving payments.": "Complete your profile and sign your agreement to start receiving payments.",
+    "Your Zonke Wallet is ready.": "Your Zonke Wallet is ready.",
+    "Wallet ID:": "Wallet ID:",
+    "Wallet Created Successfully!": "Wallet Created Successfully!",
+    "Get Started": "Get Started"
 }

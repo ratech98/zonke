@@ -33,8 +33,6 @@ export const businessDetailsStep2Schema = () =>(
 
 export const businessDetailsStep3Schema = () =>(
     yup.object().shape({
-        contactName: yup.string().required('Contact name is required'),
-        contactEmail: yup.string().email('Enter Valid Email ID').required('Contact name is required'),
         taxNumber: yup.string().required('Tax number is required'),
         tradeLicense: yup.mixed().required('Trade license is required'),
     })

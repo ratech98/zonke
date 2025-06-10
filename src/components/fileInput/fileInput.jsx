@@ -29,12 +29,25 @@ const FileInput = ({
         }
     }
 
+    //on drop
+    const handleOnDrop = (e) =>{
+        e.preventDefault()
+        e.stopPropagation()
+        const selectedfile = e.dataTransfer.files[0]
+        if(selectedfile){
+            onChange(selectedfile)
+        } 
+    }
+
+    // Required for drop to work
+    const handleOnDragOver = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+    }
+
 
   return (
-    <div 
-    className="flex flex-col gap-[2px]"
-    onClick={handleClick}
-    >
+    <div className="flex flex-col gap-[2px]">
         {
             label &&
             <span className="text-[16px] font-medium text-dimGray">
@@ -53,7 +66,11 @@ const FileInput = ({
             bg-whiteSmoke 
             px-[16px] py-[12px] 
             rounded-[8px]
-            ">
+            "
+            onClick={handleClick}
+            onDrop={handleOnDrop}
+            onDragOver={handleOnDragOver}
+            >
                 <div 
                 className="flex items-center gap-[8px]"
                 >
@@ -75,8 +92,14 @@ const FileInput = ({
                     <div className="flex flex-col gap-[4px]">
                         {
                             value?.name?.split('.').at(-1) === 'pdf'?
-                            <TransSpan className='text-[12px] text-darkGunMetal'>{label}</TransSpan>:
-                            <TransSpan className='text-[12px] text-darkGunMetal'>{label}</TransSpan>
+                            <span className='text-[12px] text-darkGunMetal'>
+                                <TransSpan>{label}</TransSpan>
+                                <span>.pdf</span>
+                            </span>:
+                            <span className='text-[12px] text-darkGunMetal'>
+                                <TransSpan className='text-[12px] text-darkGunMetal'>{label}</TransSpan>
+                                <span>.jpg</span>
+                            </span>
                         }
                         
                         <span className="text-[11px] text-graniteGray">{Number(value?.size/1024).toFixed(2)} kb</span>
@@ -100,7 +123,11 @@ const FileInput = ({
             px-[16px] py-[20px] 
             rounded-[12px] 
             cursor-pointer
-            `}>
+            `}
+            onClick={handleClick}
+            onDrop={handleOnDrop}
+            onDragOver={handleOnDragOver}
+            >
                 <img
                 src={IMAGES.fileImage}
                 className="w-[24px] h-[24px] object-contain"

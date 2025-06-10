@@ -1,6 +1,7 @@
 import { useFormik } from 'formik'
 import React from 'react'
 import { businessDetailsStep3Schema } from '../../utils/schema/schema'
+import { useNavigate } from 'react-router-dom'
 
 const UseStep3 = () => {
 
@@ -14,6 +15,8 @@ const UseStep3 = () => {
 
         validationSchema: businessDetailsStep3Schema()
     })
+
+    const navigate = useNavigate()
 
     const handleCheck = () =>{
         const bool = Boolean(
@@ -30,7 +33,7 @@ const UseStep3 = () => {
         formik.handleSubmit()
 
         if(Object.keys(errors)?.length === 0){
-
+            navigate('/businessDetailsStep4')
         }
     }
 
